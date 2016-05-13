@@ -6,7 +6,17 @@
 \usage{
 a3(formula, data, model.fn, model.args = list(), ...)
 }
+\arguments{
+\item{formula}{the regression formula.}
 
+\item{data}{a data frame containing the data to be used in the model fit.}
+
+\item{model.fn}{the function to be used to build the model.}
+
+\item{model.args}{a list of arguments passed to \code{model.fn}.}
+
+\item{...}{additional arguments passed to \code{\link{a3.base}}.}
+}
 \value{
 S3 \code{A3} object; see \code{\link{a3.base}} for details
 }
