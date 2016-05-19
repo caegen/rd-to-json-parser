@@ -1,4 +1,5 @@
-\name{comments}
+\name{comments%and comment
+}
 
 %\comments1{test}
 \value{ 

@@ -11,10 +11,18 @@
 	Just a no arg macro \dots
 }
 \details{
-	\emph{just} 2 \bold{replaceable} macros
+	\emph{just} 2 \bold{replaceable} {macros} \strong{strong}
 }
 \section{Custom Section}{
-	Content
+	Content \eqn{R^2}{R^2}
+}
+
+\examples{
+	fn('quoted string\n with \\macro'){second}
+	\dontrun{
+	wrd <- GetNewWrd(\%){}
+	WrdR("sapply(iris[,-5], mean)", wrd=wrd)%comment in verbatim
+	}fn("quoted string with \link{pkg}")
 }
 \keyword{1}
 \keyword{2}

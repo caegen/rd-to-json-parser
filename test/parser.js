@@ -25,6 +25,7 @@ describe('Basic section', function() {
       assert.deepEqual(data.alias, ['BasicSection', 'bs'], 'aliases are not equal');
       assert.strictEqual(data.name, 'BasicSection', 'name is not equal');
       assert.deepEqual(data.keyword, [ '1', '2', '3' ], 'keyword are not equal');
+      assert.strictEqual(data.examples, 'fn(\'quoted string\n with \\macro\'){second}\n\twrd <- GetNewWrd(%){}\n\tWrdR("sapply(iris[,-5], mean)", wrd=wrd)fn("quoted string with <a href="pkg" rd-options="">pkg</a>")', 'examples are not equal');
     }, done);
   });
 
@@ -36,13 +37,13 @@ describe('Basic section', function() {
 
   it('should replace replaceable macro with appropriate text and support overridden options', function (done) {
     parseFile(fixtureFile, function(data) {
-      assert.strictEqual(data.details, '<em>just</em> 2 <o>replaceable</o> macros', 'replaceable macro not correcly replaced');
+      assert.strictEqual(data.details, '<em>just</em> 2 <o>replaceable</o> {macros} <strong>strong</strong>', 'replaceable macro not correcly replaced');
     }, done, {replaceableMacro: {bold: 'o'}});
   });
 
   it('should have a custom section', function (done) {
     parseFile(fixtureFile, function(data) {
-      assert.strictEqual(data['Custom Section'], 'Content', 'custom section not correct');
+      assert.strictEqual(data['Custom Section'], 'Content $R^2$', 'custom section not correct');
     }, done);
   });
 
@@ -61,7 +62,7 @@ describe('Section with nested macros', function() {
   it('should have nested macro replaced by appropriate text ', function (done) {
     parseFile(fixtureFile, function(data) {
       assert.strictEqual(data.name, 'section_nested_macros', 'name is not equal');
-      assert.strictEqual(data.note, 'This function is melted from the <code><a href="jarque.bera.test" rd-options="">jarque.bera.test</a></code> (in <code>tseries</code> package) and the <code>rjb.test</code> from the package <code>lawstat</code>.', 'name is not equal');
+      assert.strictEqual(data.note, 'This function is melted from the <code><a href="jarque.bera.test" rd-options="pkg">jarque.bera.test</a></code> (in <code>tseries</code> package) and the <code>rjb.test</code> from the package <code>lawstat</code>.', 'name is not equal');
     }, done);
   });
 
@@ -119,6 +120,18 @@ describe('Listing Macros', function() {
           { name: '3', description: 'd3' },
           { name: '4', description: 'd4' } ],
         'arguments are not equal');
+    }, done);
+  });
+
+});
+
+describe('List-Like Macros', function() {
+  var rdocParser = new RdParser();
+  var fixtureFile = "list_like";
+
+  it('should produce correct nested html lists', function (done) {
+    parseFile(fixtureFile, function(data) {
+     assert.strictEqual(data.description, '<ul><li>first item<ol><li>first nested item</li><li>second nested item</li></ol></li><li>second item</li><li>third item</li></ul>', 'list like html markup not correct');
     }, done);
   });
 
