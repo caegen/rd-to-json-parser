@@ -6,7 +6,8 @@
   "author": "DataCamp",
   "license": "MIT",
   "scripts": {
-    "test": "mocha test/"
+    "test": "mocha test/",
+    "report-coverage": "codecov"
   },
   "devDependencies": {
     "chai": "^3.5.0",
