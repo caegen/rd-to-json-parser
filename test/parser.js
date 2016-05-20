@@ -8,7 +8,7 @@ var parseFile = function(fixtureName, assertions, mochaCallback, options) {
   var finalStream = inputStream.pipe(rdocParser);
 
   finalStream.on('data', function(data) {
-    assertions(data);
+    assertions(JSON.parse(data));
   });
 
   finalStream.on('end', function(err) {
