@@ -1,9 +1,13 @@
 # rd-to-json-parser [![codecov](https://codecov.io/gh/datacamp/rd-to-json-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/datacamp/rd-to-json-parser)
 
-
 This module will transform a Rd file describing the documentation of a R package into a JSON.
 
-#Example:
+# Installation
+```
+npm install --save rd-to-json-parser
+```
+
+# Example:
 
 This Rd file:
  
@@ -40,6 +44,9 @@ The stochastic data generators generate stochastic noise with (if specified corr
 Generally these will not be called directly but will instead be passed to the \code{data.generating.fn} argument of \code{\link{a3.base}}.
 }
 \examples{
+\author{
+  John Doe <john.doe@email.com>, John Smith \email{john.smith@email.com}
+}
 \donttest{
  # Calculate the A3 results assuming an auto-correlated set of observations.
  # In usage p.acc should be <=0.01 in order to obtain more accurate p values.
@@ -109,6 +116,16 @@ will give the following json:
    ],
    "description":"The stochastic data generators generate stochastic noise with (if specified correctly) the same properties as the observed data. By replicating the stochastic properties of the original data, we are able to obtain the exact calculation of p values.",
    "details":"Generally these will not be called directly but will instead be passed to the <code>data.generating.fn</code> argument of <code><a href=\"a3.base\" rd-options=\"\">a3.base</a></code>.",
+   "author": [ 
+      { 
+         "name": "John Doe", 
+         "email": "john.doe@email.com" 
+      },
+      { 
+         "name": "John Smith", 
+         "email": "john.smith@email.com" 
+       } 
+    ],
    "examples":"# Calculate the A3 results assuming an auto-correlated set of observations.\n # In usage p.acc should be <=0.01 in order to obtain more accurate p values.\n\n a3.lm(rating ~ ., attitude, p.acc = 0.1,\n   data.generating.fn = replicate(ncol(attitude), a3.gen.autocor))\n\n ## A general illustration:\n\n # Take x as a sample set of observations for a feature\n x <- c(0.349, 1.845, 2.287, 1.921, 0.803, 0.855, 2.368, 3.023, 2.102, 4.648)\n\n # Generate three stochastic data series with the same autocorrelation properties as x\n rand.x <- a3.gen.autocor(x, 3)\n\n plot(x, type=\"l\")\n for(i in 1:3) lines(rand.x[[i]], lwd = 0.2)"
 }
 ```

@@ -26,6 +26,8 @@ describe('Basic section', function() {
       assert.strictEqual(data.name, 'BasicSection', 'name is not equal');
       assert.deepEqual(data.keyword, [ '1', '2', '3' ], 'keyword are not equal');
       assert.strictEqual(data.examples, 'fn(\'quoted string\n with \\macro\'){second}\n\twrd <- GetNewWrd(%){}\n\tWrdR("sapply(iris[,-5], mean)", wrd=wrd)fn("quoted string with <a href="pkg" rd-options="">pkg</a>")', 'examples are not equal');
+      assert.deepEqual(data.author, [ { name: 'John Doe', email: 'john.doe@email.com' },
+        { name: 'John Smith', email: 'john.smith@email.com' } ], 'author are not equal');
     }, done);
   });
 
@@ -136,3 +138,15 @@ describe('List-Like Macros', function() {
   });
 
 });
+
+// describe('Print out for debug', function() {
+//   var rdocParser = new RdParser();
+//   var fixtureFile = "debug";
+
+//   it('should print out content', function (done) {
+//     parseFile(fixtureFile, function(data) {
+//       console.log(JSON.stringify(data));
+//     }, done);
+//   });
+
+// });
