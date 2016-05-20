@@ -1,9 +1,13 @@
 {
   "name": "rd-to-json-parser",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Parser for Rd files",
   "main": "index.js",
   "author": "DataCamp",
+  "repository" : {
+    "type" : "git", 
+    "url" : "https://github.com/datacamp/rd-to-json-parser.git"
+  },
   "license": "MIT",
   "scripts": {
     "test": "mocha test/",
