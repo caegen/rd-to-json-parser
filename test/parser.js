@@ -6,12 +6,13 @@ var parseFile = function(fixtureName, assertions, mochaCallback, options) {
   var inputStream = fs.createReadStream('./test/fixtures/'+ fixtureName +'.Rd');
   var rdocParser = new RdParser(options);
   var finalStream = inputStream.pipe(rdocParser);
-
-  finalStream.on('data', function(data) {
-    assertions(JSON.parse(data));
+  var data = null;
+  finalStream.on('data', function(obj) {
+    data = obj;
   });
 
   finalStream.on('end', function(err) {
+    assertions(data);
     mochaCallback();
   });
 };
