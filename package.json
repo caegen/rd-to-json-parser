@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha test/",
-    "report-coverage": "codecov"
+    "report-coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov"
   },
   "devDependencies": {
     "chai": "^3.5.0",
