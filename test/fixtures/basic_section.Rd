@@ -18,7 +18,7 @@
 }
 
 \examples{
-	fn('quoted string\n with \\macro'){second}
+	fn("quoted string\n with \\macro"){second}
 	\dontrun{
 	wrd <- GetNewWrd(\%){}
 	WrdR("sapply(iris[,-5], mean)", wrd=wrd)%comment in verbatim
