@@ -90,7 +90,7 @@ describe('Comments', function() {
           { name: 'arg1', description: 'desc1' },
           { name: 'arg2', description: 'desc2' } 
         ], 
-        'keyword are not equal'
+        'value are not equal'
       );
     }, done);
   });
