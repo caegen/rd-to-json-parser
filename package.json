@@ -1,6 +1,6 @@
 {
   "name": "rd-to-json-parser",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "Parser for Rd files",
   "main": "index.js",
   "author": "DataCamp",
