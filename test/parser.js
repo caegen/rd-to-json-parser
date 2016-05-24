@@ -140,14 +140,14 @@ describe('List-Like Macros', function() {
 
 });
 
-// describe('Print out for debug', function() {
-//   var rdocParser = new RdParser();
-//   var fixtureFile = "debug";
+describe('Print out for debug', function() {
+  var rdocParser = new RdParser();
+  var fixtureFile = "debug";
 
-//   it('should print out content', function (done) {
-//     parseFile(fixtureFile, function(data) {
-//       console.log(data);
-//     }, done);
-//   });
+  it('should print out content', function (done) {
+    parseFile(fixtureFile, function(data) {
+      console.log(data);
+    }, done);
+  });
 
-// });
+});
