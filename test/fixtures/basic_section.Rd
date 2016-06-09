@@ -1,6 +1,7 @@
 \name{BasicSection}
 \alias{BasicSection}
 \alias{bs}
+\non_function{}
 \title{
 	    Trimmed
 }
